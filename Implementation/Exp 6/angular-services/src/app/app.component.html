@@ -1,0 +1,11 @@
+<div class="container">
+  <div>
+    <h1>{{ title }}</h1>
+    <button (click)="fetchData()">Fetch Data</button>
+    <p>Data from DataService:</p>
+    <div *ngIf="dataServiceData">
+      <p>{{ dataServiceData }}</p>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,35 @@
+<div class="contianer">
+  <h1>{{title}}</h1>
+
+  <h3>*ngIf</h3>
+
+  <p>Current value of isLoggedIn : {{isLoggedIn}}</p>
+  
+  <p *ngIf="isLoggedIn; else showLogin">
+    You are logged in.
+    <button (click)="logout()">Log Out</button>
+  </p>
+
+  <ng-template #showLogin>
+    Your are logged out.
+    <button (click)="login()">Log In</button>
+  </ng-template>
+
+  <h3>*ngFor</h3>
+
+  <ul>
+    <li *ngFor="let item of items">{{item.city}}</li>
+  </ul>
+
+  <h3>*ngSwitch</h3>
+
+  <p>Value of color variable in component : {{color}}</p>
+  <div [ngSwitch]="color">
+    <p *ngSwitchCase="'red'">Red Color Paragraph</p>
+    <p *ngSwitchCase="'blue'">Blue Color Paragraph</p>
+    <p *ngSwitchCase="'green'">Green Color Paragraph</p>
+    <p *ngSwitchDefault>Another Color Paragraph</p>
+  </div>
+  
+
+</div>
