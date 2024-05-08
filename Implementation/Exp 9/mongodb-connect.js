@@ -22,8 +22,10 @@ async function connectToMongoDB() {
 async function insertDocument(client) {
     const db = client.db('User_DB');
     const collection = db.collection('students');
+
     const document = { name: 'Jacob', age: 35, city: 'New York' };
     const result = await collection.insertOne(document);
+    
     console.log('Inserted document:', result);
 }
 
@@ -31,7 +33,9 @@ async function insertDocument(client) {
 async function readDocument(client) {
     const db = client.db('User_DB');
     const collection = db.collection('students');
+    
     const documents = await collection.find({}).toArray();
+ 
     console.log('Retrieved documents:', documents);
 }
 
@@ -39,9 +43,11 @@ async function readDocument(client) {
 async function updateDocument(client) {
     const db = client.db('User_DB');
     const collection = db.collection('students');
+ 
     const filter = {name : 'John'};
     const update = { $set: { age: 60 } };
     const result = await collection.updateOne(filter, update);
+ 
     console.log("Updated document: ", result); 
 }
 
@@ -49,8 +55,10 @@ async function updateDocument(client) {
 async function deleteDocument(client) {
     const db = client.db('User_DB');
     const collection = db.collection('students');
+ 
     const filter = {name : 'John'};
     const result = await collection.deleteOne(filter);
+ 
     console.log("Deleted document: ", result);
 }
 
